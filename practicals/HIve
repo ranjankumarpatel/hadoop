@@ -1,0 +1,11 @@
+CREATE TABLE user(id INT, name STRING) ROW FORMAT
+DELIMITED FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+LOAD DATA LOCAL INPATH '/home/cloudera/hadoop-practice/HiveDemo' INTO TABLE user
+
+CREATE TABLE userexternal(id INT, name STRING) ROW FORMAT
+              DELIMITED FIELDS TERMINATED BY ','
+              LINES TERMINATED BY '\n' 
+              STORED AS TEXTFILE
+              LOCATION '/home/cloudera/hadoop-practice/userdata';

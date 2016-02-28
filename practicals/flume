@@ -1,0 +1,55 @@
+1.) cd /etc/flume-ng/conf/
+
+2.)ls
+
+3.)cat flume.conf
+
+4.)vi flume.conf (Copy code below in point 8 into this  file)
+
+5.)create a file called customers.csv on Desktop
+
+6.)execute following command
+# Example command to run:
+# flume-ng agent --conf ../conf --conf-file flume.conf --name a1 -Dflume.root.logger=INFO,console
+
+7.) check file in HDFS file browser in /tmp/flume/trades/
+
+8.)
+# Name the components on this agent
+a1.sources = r1
+a1.sinks =  k2
+a1.channels = c1
+
+# Describe/configure the source
+# a1.sources.r1.type = netcat
+# a1.sources.r1.bind = localhost
+# a1.sources.r1.port = 44444
+a1.sources.r1.type = exec
+a1.sources.r1.shell = /bin/bash -c
+a1.sources.r1.command = cat /home/cloudera/Desktop/customers.csv
+a1.sources.r1.interceptors = a
+a1.sources.r1.interceptors.a.type = org.apache.flume.interceptor.TimestampInterceptor$Builder
+
+# Describe the sinks
+a1.sinks.k1.type = logger
+
+a1.sinks.k2.type = hdfs
+a1.sinks.k2.channel = c1
+a1.sinks.k2.hdfs.fileType = DataStream
+a1.sinks.k2.hdfs.batchSize = 2000
+a1.sinks.k2.hdfs.rollCount = 5000
+a1.sinks.k2.hdfs.rollSize = 1000000
+a1.sinks.k2.hdfs.rollInterval = 10
+a1.sinks.k2.hdfs.writeFormat = Text
+# a1.sinks.k2.hdfs.path = /tmp
+a1.sinks.k2.hdfs.path = /tmp/flume/trades/%y-%m-%d/%H%M/%S
+
+# Use a channel which buffers events in memory
+a1.channels.c1.type = memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 1000
+
+# Bind the source and sink to the channel
+a1.sources.r1.channels = c1
+a1.sinks.k1.channel = c1
+a1.sinks.k2.channel = c1

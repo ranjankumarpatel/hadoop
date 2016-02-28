@@ -1,0 +1,20 @@
+hadoop fs -mkdir -p /WordCount/
+hadoop fs -put File.txt /WordCount/File.txt
+hadoop fs -ls /home/WordCount/
+hadoop jar WordCount.jar WordCount /home/WordCount/File.txt wordcountoutputnew
+
+see output at -> /user/cloudera/wordcountoutputnew
+see input at -> /WordCount/File.txt
+
+
+--partitioner and Combiner
+
+hadoop fs -mkdir /user/WordCountPartComb
+hadoop fs -put /home/cloudera/Desktop/practicals/File2.txt /user/WordCountPartComb/File2.txt
+hadoop fs -ls /user/WordCountPartComb/
+
+hadoop jar /home/cloudera/Desktop/WordCount_Partitioner_Combiner.jar WordCountCombiner /user/WordCountPartComb/File2.txt /user/WordCount_Part_Comb_Output/
+
+hadoop fs -ls /user/WordCount_Part_Comb_Output/
+hadoop fs -cat /user/WordCount_Part_Comb_Output/part-00000
+

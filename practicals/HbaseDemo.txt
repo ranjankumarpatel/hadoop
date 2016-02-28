@@ -1,0 +1,7 @@
+RowKey,Salary:Salary,Name:Name
+12,1500,Hitesh
+123,2000,Roham
+111,500,Som
+767 ,4510,Isha
+115,4550,
+667,,Jack

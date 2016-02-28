@@ -1,0 +1,24 @@
+create 'Employee','Personal','Professional'
+list
+describe 'Employee'
+put 'Employee','r1','Personal:Name','val1'
+put 'Employee','r2','Personal:Name','val2'
+put 'Employee','r3','Personal:Name','val3'
+
+scan 'Employee'
+
+get 'Employee','r1'
+
+alter 'Employee',NAME=>'Personal',VERSIONS=>4
+
+get 'Employee','r3',{COLUMN=>'Personal:Name',VERSIONS=>10}
+
+---get 'Employee','r3',{COLUMN=>'Personal:Name',TIMESTAMP=1447697113594}
+
+delete 'Employee','r3','Personal:Name'
+
+disable 'Employee'
+
+drop 'Employee'
+
+

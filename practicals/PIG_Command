@@ -1,0 +1,20 @@
+PIG -x local
+env = LOAD '/home/cloudera/Desktop/PIG_Data' as (year:int,city:chararray,temp:int);
+
+DESCRIBE env
+
+DUMP env
+
+High_Temp  = FILTER env by temp > 35;
+
+DUMP High_Temp
+
+Group_DATA = GROUP env by year;
+
+DESCRIBE Group_DATA
+
+max_temp = FOREACH Group_DATA GENERATE group,MAX(env.temp);
+
+STORE max_temp into 'max_temp'
+
+(check your local directory  /home/cloudera/max_temp)

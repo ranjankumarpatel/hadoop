@@ -1,0 +1,40 @@
+$ mysql -u root -p
+
+Enter password:
+
+mysql> create database testDb;
+
+mysql> use testDb;
+
+mysql> create table stud1(id integer,name char(20)); 
+
+insert into stud1 values(1,'Rohan');
+insert into stud1 values(2,'Som');
+insert into stud1 values(3,'Sachin');
+insert into stud1 values(4,'Aman');
+
+mysql> exit; 
+
+sqoop import --connect jdbc:mysql://localhost/testDb --username root --password cloudera --target-dir /sqoop_import_job --table stud1 --m 1
+
+
+---Export
+
+create table stud2(id integer,name char(20))
+
+Create a file student in your local and import it in hdfs.
+
+
+
+sqoop export --connect jdbc:mysql://localhost/testDb --username root --password cloudera --table stud2 -m 1 --export-dir /user/cloudera/student
+
+
+(run below commands only if needed)
+
+mysql> grant all privileges on testDb.* to ''@localhost  
+
+
+
+   UPDATE user SET Password = PASSWORD('cloudera')
+   WHERE Host = 'localhost' AND User = 'root';
+
