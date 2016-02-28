@@ -1,0 +1,4 @@
+CREATE EXTERNAL TABLE pincode_table(StateName string,DistrictName string,subdistname string,villagename string,locality_detail1 string,locality_detail2 string,locality_detail3 string,OfficeName string,Pincode string) 
+ROW FORMAT
+DELIMITED FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n' STORED AS TEXTFILE LOCATION '/home/cloudera/hadoop-practice/pincode';
