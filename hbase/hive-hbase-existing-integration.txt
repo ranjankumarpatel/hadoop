@@ -1,0 +1,13 @@
+If you want to give Hive access to an existing HBase table, use CREATE EXTERNAL TABLE:
+CREATE EXTERNAL TABLE hbase_table_2(key int, value string) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES ("hbase.columns.mapping" = "cf1:val")
+TBLPROPERTIES("hbase.table.name" = "some_existing_table", "hbase.mapred.output.outputtable" = "some_existing_table");
+
+Again, hbase.columns.mapping is required (and will be validated against the existing HBase table's column families), whereas hbase.table.name is optional.
+The hbase.mapred.output.outputtable is optional.
+
+CREATE EXTERNAL TABLE hbase_demo_table(key int,Name string, Salary int) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES ("hbase.columns.mapping" = "Name:Name,Salary:Salary")
+TBLPROPERTIES("hbase.table.name" = "demo_table", "hbase.mapred.output.outputtable" = "demo_table");
