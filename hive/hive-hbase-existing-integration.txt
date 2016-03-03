@@ -4,3 +4,16 @@ WITH SERDEPROPERTIES ("hbase.columns.mapping" = "Name:Name,Salary:Salary")
 TBLPROPERTIES("hbase.table.name" = "demo_table", "hbase.mapred.output.outputtable" = "demo_table");
 
 key is for RowKey.No need to map this in column mapping.
+
+
+CREATE EXTERNAL TABLE hbasehive_table
+(key string, userid string,bookid string,rating int) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES 
+("hbase.columns.mapping" = ":key,ratings:userid,ratings:bookid,ratings:rating")
+TBLPROPERTIES ("hbase.table.name" = "hivehbase");
+
+SET hbase.zookeeper.quorum = localhost in settings in hue
+
+http://www.confusedcoders.com/bigdata/hive/hbase-hive-integration-querying-hbase-via-hive
+
