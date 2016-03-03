@@ -1,0 +1,4 @@
+scan 'demo_table',{ FILTER => "KeyOnlyFilter()"}
+
+scan 'indianrail' ,{ FILTER => "SingleColumnValueFilter('train','source Station Name',=, 'binaryprefix:BHUBANESWAR')" } 
+
