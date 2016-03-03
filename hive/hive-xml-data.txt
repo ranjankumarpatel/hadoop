@@ -1,3 +1,6 @@
 Create TABLE hospital_table(xmldata string) STORED AS TEXTFILE;
 
 LOAD DATA INPATH '/user/cloudera/datasets/hospita_data.xml' INTO TABLE `ranjan`.`hospital_table`;
+
+Drop view IF EXISTS hospital_view;
+
