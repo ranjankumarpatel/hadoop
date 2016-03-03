@@ -2,3 +2,5 @@ CREATE EXTERNAL TABLE hbase_demo_table(key int,Name string, Salary int)
 STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
 WITH SERDEPROPERTIES ("hbase.columns.mapping" = "Name:Name,Salary:Salary")
 TBLPROPERTIES("hbase.table.name" = "demo_table", "hbase.mapred.output.outputtable" = "demo_table");
+
+key is for RowKey.No need to map this in column mapping.
