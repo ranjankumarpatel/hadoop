@@ -1,0 +1,5 @@
+create table part_table (key int,name string) PARTITIONED BY (city string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE LOCATION '/home/cloudera/db';
+
+LOAD DATA INPATH '/home/cloudera/db/part/part_table.csv' INTO TABLE `ranjan`.`part_table` PARTITION (city='bbsr')
