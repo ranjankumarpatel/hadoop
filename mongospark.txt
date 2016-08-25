@@ -1,1 +1,5 @@
 mongoimport --host ds061308.mlab.com --port 61308 -u spark -p 123456 --headerline --file Extra-vehicular_Activity__EVA__-_US_and_Russia.csv --type csv --db mongospark --collection eva
+
+
+spark-shell --conf "spark.mongodb.input.uri=mongodb://spark:123456@ds061308.mlab.com:61308/mongospark.eva" --conf "spark.mongodb.output.uri=mongodb://spark:123456@ds061308.mlab.com:61308/mongospark.astronautTotals" 
+--packages org.mongodb.spark:mongo-spark-connector_2.10:0.1
