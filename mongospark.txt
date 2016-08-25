@@ -1,0 +1,1 @@
+mongoimport --host ds061308.mlab.com --port 61308 -u spark -p 123456 --headerline --file Extra-vehicular_Activity__EVA__-_US_and_Russia.csv --type csv --db mongospark --collection eva
