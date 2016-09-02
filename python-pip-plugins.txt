@@ -1,0 +1,7 @@
+python -m pip install -U pip
+
+python -m pip install snakebite
+
+python -m pip install jupyter
+
+python -m pip install ipyparallel
