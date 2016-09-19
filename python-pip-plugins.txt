@@ -11,3 +11,9 @@ python -m pip install --pre toree
 python -m pip install sbt
 
 python -m pip install -U scikit-learn
+
+https://github.com/ipython/ipyparallel
+
+jupyter console --KernelManager.kernel_cmd='["java", "-jar", "IScala.jar", "--parent"]' -f profile-13276.json
+
+>python -m ipykernel install --name Scala --profile Scala
