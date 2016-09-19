@@ -17,3 +17,6 @@ https://github.com/ipython/ipyparallel
 jupyter console --KernelManager.kernel_cmd='["java", "-jar", "IScala.jar", "--parent"]' -f profile-13276.json
 
 >python -m ipykernel install --name Scala --profile Scala
+
+java -jar IScala.jar
+connect ipython with --existing F:\spark\projects\IScala-0.1\IScala-0.1\lib\profile-13276.json
