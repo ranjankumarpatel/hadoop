@@ -1,0 +1,3 @@
+java -jar avro-tools-1.8.1.jar tojson --pretty twitter.avro
+
+java -jar avro-tools-1.8.1.jar getschema twitter.avro > avro_get_schema.avsc
