@@ -1,4 +1,6 @@
 Interview Questions
 ================
 
-<ul><li><a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a></li></ul>
+https://en.wikipedia.org/wiki/CAP_theorem
+
+https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/spark-dagscheduler-stages.html
