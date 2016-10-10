@@ -10,6 +10,10 @@ python -m pip install --pre toree
 
 python -m pip install sbt
 
+python -m pip install -U numpy
+
+python -m pip install -U pandas
+
 python -m pip install -U scikit-learn
 
 https://github.com/ipython/ipyparallel
