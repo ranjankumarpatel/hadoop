@@ -8,3 +8,6 @@ https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/spark-dagsched
 Spark Internals
 
 https://www.youtube.com/watch?v=dmL0N3qfSc8
+
+Enable fetch and verify the performance improvement:
+jdbc:hive2://> SET hive.fetch.task.conversion=more;
