@@ -8,7 +8,7 @@ python -m pip install ipyparallel
 
 python -m pip install --pre toree
 
-python -m pip install sbt
+python -m pip install pexpect
 
 python -m pip install -U numpy
 
