@@ -15,3 +15,7 @@ create table mandi_data_1(
   ROW FORMAT DELIMITED
      FIELDS TERMINATED BY ','
          STORED AS TEXTFILE;
+
+
+
+ALTER TABLE mandi_data SET TBLPROPERTIES ('skip.header.line.count' = "1");
