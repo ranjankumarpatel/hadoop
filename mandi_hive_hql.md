@@ -10,7 +10,7 @@ create table mandi_data_1(
   min_price INT,
   modal_price INT,
   state string,
-  time_stamp timestamp,
+  time_stamp BIGINT,
   variety string)
   ROW FORMAT DELIMITED
      FIELDS TERMINATED BY ','
